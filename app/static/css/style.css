@@ -1,0 +1,109 @@
+:root {
+    --bg: #0f1117;
+    --panel: #1a1d29;
+    --border: #2c2f3f;
+    --text: #e8e8ec;
+    --muted: #9a9db0;
+    --accent: #5ac8fa;
+    --alive: #5ac8fa;
+    --dead: #1a1d29;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+button, select {
+    background: var(--panel);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 0.5rem 0.9rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+button:hover, select:hover {
+    border-color: var(--accent);
+}
+
+.metrics {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 0.9rem;
+}
+
+.metrics strong {
+    color: var(--text);
+}
+
+.board-section {
+    display: flex;
+    justify-content: center;
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem;
+}
+
+#grid-canvas {
+    background: var(--dead);
+    max-width: 100%;
+}
+
+.charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.chart-container {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.75rem;
+}
+
+@media (max-width: 700px) {
+    .charts {
+        grid-template-columns: 1fr;
+    }
+    .metrics {
+        margin-left: 0;
+    }
+}
