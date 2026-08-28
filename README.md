@@ -34,6 +34,15 @@ python run.py
 
 A aplicação fica disponível em `http://127.0.0.1:5000`.
 
+Por padrão o modo debug do Flask fica desligado. Para ativá-lo em desenvolvimento
+local (nunca em produção — o debugger interativo permite execução remota de
+código), defina `FLASK_DEBUG=1` antes de rodar:
+
+```bash
+set FLASK_DEBUG=1   # Windows
+python run.py
+```
+
 ## Testes
 
 ```bash
