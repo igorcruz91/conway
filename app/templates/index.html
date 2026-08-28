@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conway's Game of Life</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+    <header>
+        <h1>Conway's Game of Life</h1>
+    </header>
+
+    <main>
+        <section class="controls">
+            <button id="play-pause-btn" type="button">Iniciar</button>
+            <button id="step-btn" type="button">Passo</button>
+            <button id="clear-btn" type="button">Limpar</button>
+            <select id="pattern-select">
+                <option value="random">Aleatório</option>
+                <option value="glider">Planador</option>
+                <option value="blinker">Blinker</option>
+                <option value="block">Bloco</option>
+            </select>
+            <button id="reset-btn" type="button">Aplicar Padrão</button>
+            <div class="metrics">
+                <span>Geração: <strong id="generation-value">0</strong></span>
+                <span>Células vivas: <strong id="living-value">0</strong></span>
+                <span>Entropia: <strong id="entropy-value">0.00</strong></span>
+            </div>
+        </section>
+
+        <section class="board-section">
+            <canvas id="grid-canvas"></canvas>
+        </section>
+
+        <section class="charts">
+            <div class="chart-container">
+                <canvas id="living-chart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="entropy-chart"></canvas>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        window.CONWAY_CONFIG = {
+            gridWidth: {{ grid_width }},
+            gridHeight: {{ grid_height }},
+            updateIntervalMs: {{ update_interval_ms }}
+        };
+    </script>
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
